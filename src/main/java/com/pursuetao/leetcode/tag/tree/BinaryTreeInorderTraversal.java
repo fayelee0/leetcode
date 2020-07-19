@@ -2,13 +2,14 @@ package com.pursuetao.leetcode.tag.tree;
 
 import com.pursuetao.leetcode.TreeNode;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 // #94 中序遍历 LNR
 public class BinaryTreeInorderTraversal {
-    // 递归
+    // 递归：每一个分支都需要构建 ArrayList 对象
+    //
+    // 时间：O(2^n), n = 树的高度
+    // 空间：O(n)，  n = 树的结点数
     List<Integer> m0(TreeNode root) {
         List<Integer> ret;
         if (root != null) {
@@ -24,7 +25,10 @@ public class BinaryTreeInorderTraversal {
         return ret;
     }
 
-    // 递归
+    // 递归：传递一个公用的 ArrayList 对象
+    //
+    // 时间：O(2^n)，n = 树的高度
+    // 空间：O(n)，  n = 树的结点数
     List<Integer> m1(TreeNode root) {
         List<Integer> ret = new ArrayList<>();
 
@@ -46,8 +50,56 @@ public class BinaryTreeInorderTraversal {
     }
 
     // 迭代
+    //
+    // 时间：O(n)，n = 树的结点数
+    // 空间：O(n)，n = 树的结点数
     List<Integer> m2(TreeNode root) {
-        // TODO:
-        return null;
+        if (root == null) {
+            return Collections.emptyList();
+        }
+
+        Stack<TreeNode> stack = new Stack<>();
+        stack.add(root);
+
+        Set<TreeNode> set = new HashSet<>();
+
+        List<Integer> ret = new ArrayList<>();
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+
+            if (!set.contains(node)) {
+                if (node.getRight() != null) {
+                    stack.push(node.getRight());
+                }
+
+                if (node.getLeft() == null || set.contains(node.getLeft())) {
+                    ret.add(node.getVal());
+                    set.add(node);
+                } else {
+                    stack.push(node);
+                    if (node.getLeft() != null) {
+                        stack.push(node.getLeft());
+                    }
+                }
+            }
+        }
+        return ret;
+    }
+
+
+    // 迭代：
+    List<Integer> m3(TreeNode root) {
+        List<Integer> ret = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        for (TreeNode node = root; node != null || !stack.isEmpty(); ) {
+            while (node != null) {
+                stack.push(node);
+                node = node.getLeft();
+            }
+            node = stack.pop();
+            ret.add(node.getVal());
+            node = node.getRight();
+        }
+        return ret;
     }
 }
