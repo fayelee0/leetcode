@@ -50,3 +50,45 @@ for (int i = 0, N = nums.length; i < N; i++) {
     }
 }
 ```
+
+### [15. 3Sum](https://leetcode.com/problems/3sum/)
+
+1. 排序数组
+2. 取数做锚点，然后 [lo, hi] 两个指针向中间扫描
+
+```java
+import java.util.*;
+class ThreeSum {
+
+    List<List<Integer>> m0(int[] nums) {
+        
+        Arrays.sort(nums);
+
+        List<List<Integer>> ret = new ArrayList<>();
+        for (int i = 0; i < N - 2; i++) {
+            if (i == 0 || nums[i] != nums[i - 1]) { // 前面相同的数已经处理过，该重复的数就不处理了
+                int sum = -nums[i];
+                int lo = i + 1;
+                int hi = N - 1;
+
+                while (lo < hi) {
+                    if (sum == nums[lo] + nums[hi]) {
+                        ret.add(Arrays.asList(nums[i], nums[lo], nums[hi]));
+                        while (lo < hi && nums[lo] == nums[lo + 1]) { // 跳过重复数
+                            lo++;
+                        }
+                        while (lo < hi && nums[hi] == nums[hi - 1]) { // 跳过重复数
+                            hi--;
+                        }
+                    } else if (sum > nums[lo] + nums[hi]) {
+                        lo++;
+                    } else {
+                        hi--;
+                    }
+                }
+            }
+        }
+    return ret;
+    }
+}
+```
