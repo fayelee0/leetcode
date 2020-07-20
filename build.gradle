@@ -13,4 +13,6 @@ dependencies {
     testImplementation 'org.hamcrest:hamcrest:2.2'
     testImplementation 'org.hamcrest:hamcrest-library:2.2'
     testImplementation 'junit:junit:4.12'
+
+    compile 'org.apache.commons:commons-lang3:3.11'
 }
