@@ -3,6 +3,8 @@ package com.pursuetao.leetcode.tag.array;
 import java.util.*;
 
 public class ThreeSum {
+    // Time     O(n^2)
+    // Space    O(1) or O(n) as Sort Algorithm
     List<List<Integer>> m0(int[] nums) {
         int N = nums.length;
         if (N < 3) {
@@ -42,17 +44,5 @@ public class ThreeSum {
         }
 
         return ret;
-    }
-
-    List<Integer> twoSum(int[] nums, int n, int target) throws NoSuchElementException {
-        Map<Integer, Integer> mm = new HashMap<>();
-        for (int i = n, N = nums.length; i < N; i++) {
-            if (mm.containsKey(target - nums[i])) {
-                return Arrays.asList(i, mm.get(target - nums[i]));
-            } else {
-                mm.put(nums[i], i);
-            }
-        }
-        throw new NoSuchElementException();
     }
 }

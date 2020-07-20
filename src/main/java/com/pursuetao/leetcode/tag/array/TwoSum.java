@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TwoSum {
+    // Time     O(n)
+    // Space    O(n)
     int[] m0(int[] nums, int target) {
         Map<Integer, Integer> mm = new HashMap<>();
         for (int i = 0, N = nums.length; i < N; i++) {
