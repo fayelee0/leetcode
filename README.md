@@ -2,6 +2,8 @@
 
 ## Tag
 
+> 仅保留关键代码
+
 ### [Tree](https://leetcode.com/tag/tree/)
 
 #### [94. BinaryTree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)
