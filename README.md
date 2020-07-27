@@ -50,7 +50,7 @@ class BinaryTreeInorderTraversal {
 
 ### [Array](https://leetcode.com/tag/array/)
 
-### [1. Two Sum](https://leetcode.com/problems/two-sum/)
+#### [1. Two Sum](https://leetcode.com/problems/two-sum/)
 
 使用*散列*来存储*已遍历过的数*（值-索引）。
 当前数通过查表来获取配对。
@@ -71,7 +71,7 @@ class TwoSum() {
 }
 ```
 
-### [15. 3Sum](https://leetcode.com/problems/3sum/)
+#### [15. 3Sum](https://leetcode.com/problems/3sum/)
 
 1. 排序数组
 2. 取数做锚点，然后 [lo, hi] 两个指针向中间扫描
@@ -105,6 +105,34 @@ class ThreeSum {
             }
         }
         return ret;
+    }
+}
+```
+
+### [Linked List](https://leetcode.com/tag/linked-list/)
+
+#### [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
+
+> 通过*快慢指针*将间距拉开*N*
+
+```java
+class RemoveNthNodeFromEndOfList {
+    ListNode m0(ListNode head, int n) {
+        ListNode sentry = new ListNode(0, head);
+        ListNode slow = sentry;
+        ListNode fast = sentry;
+
+        for (int i = 0; i <= n; i++) {
+            fast = fast.next;
+        }
+
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        slow.next = slow.next.next;
+        return sentry.next;
     }
 }
 ```
