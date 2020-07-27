@@ -111,6 +111,40 @@ class ThreeSum {
 
 ### [Linked List](https://leetcode.com/tag/linked-list/)
 
+#### [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
+
+> 注意进位
+
+```java
+class AddTwoNumbers {
+    ListNode m0(ListNode l1, ListNode l2) {
+        ListNode sentry = new ListNode(0);
+    
+        ListNode node = sentry;
+        int c = 0;
+        while (l1 != null || l2 != null) {
+            if (l1 != null) {
+                c += l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                c += l2.val;
+                l2 = l2.next;
+            }
+            node.next = new ListNode(c % 10);
+            node = node.next;
+            c /= 10;
+        }
+    
+        if (c != 0) {
+            node.next = new ListNode(c);
+        }
+    
+        return sentry.next;
+    }
+}
+```
+
 #### [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 
 > 通过*快慢指针*将间距拉开*N*
