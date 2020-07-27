@@ -15,9 +15,9 @@ public class BinaryTreeInorderTraversal {
         if (root != null) {
             ret = new ArrayList<>();
 
-            ret.addAll(m0(root.getLeft()));
-            ret.add(root.getVal());
-            ret.addAll(m0(root.getRight()));
+            ret.addAll(m0(root.left));
+            ret.add(root.val);
+            ret.addAll(m0(root.right));
         } else {
             ret = Collections.emptyList();
         }
@@ -33,9 +33,9 @@ public class BinaryTreeInorderTraversal {
         List<Integer> ret = new ArrayList<>();
 
         if (root != null) {
-            m11(root.getLeft(), ret);
-            ret.add(root.getVal());
-            m11(root.getRight(), ret);
+            m11(root.left, ret);
+            ret.add(root.val);
+            m11(root.right, ret);
         }
 
         return ret;
@@ -43,9 +43,9 @@ public class BinaryTreeInorderTraversal {
 
     void m11(TreeNode root, List<Integer> ret) {
         if (root != null) {
-            m11(root.getLeft(), ret);
-            ret.add(root.getVal());
-            m11(root.getRight(), ret);
+            m11(root.left, ret);
+            ret.add(root.val);
+            m11(root.right, ret);
         }
     }
 
@@ -68,17 +68,17 @@ public class BinaryTreeInorderTraversal {
             TreeNode node = stack.pop();
 
             if (!set.contains(node)) {
-                if (node.getRight() != null) {
-                    stack.push(node.getRight());
+                if (node.right != null) {
+                    stack.push(node.right);
                 }
 
-                if (node.getLeft() == null || set.contains(node.getLeft())) {
-                    ret.add(node.getVal());
+                if (node.left == null || set.contains(node.left)) {
+                    ret.add(node.val);
                     set.add(node);
                 } else {
                     stack.push(node);
-                    if (node.getLeft() != null) {
-                        stack.push(node.getLeft());
+                    if (node.left != null) {
+                        stack.push(node.left);
                     }
                 }
             }
@@ -94,11 +94,11 @@ public class BinaryTreeInorderTraversal {
         for (TreeNode node = root; node != null || !stack.isEmpty(); ) {
             while (node != null) {
                 stack.push(node);
-                node = node.getLeft();
+                node = node.left;
             }
             node = stack.pop();
-            ret.add(node.getVal());
-            node = node.getRight();
+            ret.add(node.val);
+            node = node.right;
         }
         return ret;
     }
