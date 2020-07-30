@@ -170,3 +170,57 @@ class RemoveNthNodeFromEndOfList {
     }
 }
 ```
+
+#### [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
+
+1. Recursive
+
+```java
+class MergeTwoSortedLists {
+    ListNode m0(ListNodo l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
+        } else if (l2 == null) {
+            return l1;
+        } else {
+            if (l1.val < l2.val) {
+                l1.next = m0(l1.next, l2);
+                return l1; 
+            } else {
+                l2.next = m0(l1, l2.next);
+                return l2;
+            }
+        }
+    }
+}
+```
+
+2. Iterative
+
+```java
+class MergeTwoSortedLists {
+    ListNode m0(ListNode l1, ListNode l2) {
+        ListNode sentry = new ListNode(0);
+        ListNode x = sentry;
+
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                x.next = l1;
+                l1 = l1.next;
+            } else {
+                x.next = l2;
+                l2 = l2.next;
+            }
+            x = x.next;
+        }
+    
+        if (l1 != null) {
+            x.next = l1;
+        } else {
+            x.next = l2;
+        }
+        
+        return sentry.next;
+    }
+}
+```
