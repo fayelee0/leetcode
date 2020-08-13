@@ -372,6 +372,42 @@ class RemoveDuplicatesFromSortedListII {
 }
 ```
 
+#### [61. Rotate List](https://leetcode.com/problems/rotate-list/)
+
+> 计算链表长度
+>
+> 将通过快慢指针将链表分成两个部分
+
+```java
+class RotateList {
+    ListNode m0(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        } else {
+            ListNode fast = head;
+            ListNode slow = head;
+            
+            int size = 0;
+            while (fast.next != null) {
+                size++;
+                fast = fast.next;
+            }
+            size++;
+    
+            for (int i = size - k % size - 1; i > 0; i--) {
+                slow = slow.next;
+            }
+    
+            fast.next = head;
+            head = slow.next;
+            slow.next = true;
+            return head;
+        }
+    }
+}
+```
+
+
 #### [83. Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
 
 > 快慢指针
