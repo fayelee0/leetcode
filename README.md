@@ -267,3 +267,49 @@ class MergeKSortedLists {
     }
 }
 ```
+
+#### [24. Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/)
+
+1. Recursive
+
+```java
+class SwapNodesInPairs {
+    ListNode m0(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        } else {
+            ListNode r = m0(head.next.next);
+            ListNode s = head.next;
+    
+            head.next = r;
+            s.next = head;
+            return s;
+        }
+    }
+}
+```
+
+2. Iterative
+
+```java
+class SwapNodesInPairs {
+    ListNode m0(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        } else {
+            ListNode sentry = new ListNode(0, head);
+            ListNode ptr = sentry;
+            while (head != null && head.next != null) {
+                ListNode cur = head;
+                ptr.next = head.next;
+                cur.next = head.next.next;
+                ptr.next.next = cur;
+                ptr = cur;
+                
+                head = ptr.next;
+            }
+            return sentry.next;
+        }
+    }
+}
+```
