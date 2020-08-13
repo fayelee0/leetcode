@@ -314,6 +314,64 @@ class SwapNodesInPairs {
 }
 ```
 
+#### [82. Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)
+
+> 如果发现相邻的元素相同，则依次跳过这些结点
+
+1. Recursive
+
+```java
+class RemoveDuplicatesFromSortedListII {
+    ListNode m0(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        } else {
+            if (head.val != head.next.val) {
+                head.next = m0(head.next);
+                return head;
+            } else {
+                while (head.next != null && head.val == head.next.val) {
+                    head = head.next;
+                }
+                return m0(head.next);
+            }
+        }
+    }
+}
+```
+
+2. Iterative
+
+```java
+class RemoveDuplicatesFromSortedListII {
+    ListNode m0(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        } else {
+            ListNode sentry = new ListNode(0, head);
+
+            ListNode ptr = sentry;
+            ListNode x = head;
+            while (x != null) {
+                while (x.next != null && x.val == x.next.val) {
+                    x = x.next;
+                }
+                
+                if (ptr.next = x) {
+                    ptr = ptr.next;
+                } else {
+                    ptr.next = x.next;
+                }
+        
+                x = x.next;
+            }
+            ptr.next = null;
+            return sentry.next;
+        }
+    }
+}
+```
+
 #### [83. Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
 
 > 快慢指针
