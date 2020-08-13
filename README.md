@@ -224,3 +224,46 @@ class MergeTwoSortedLists {
     }
 }
 ```
+
+#### [23. Merge K Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
+
+> 将数据存入优先级队列
+>
+> 从优先级队列获取的结点就是最小结点，拼接到返回链表
+>
+> 将剩下的部分再次存入优先级队列
+>
+> 直到优先级队列为空
+
+```java
+class MergeKSortedLists {
+    ListNode m0(ListNode[] lists) {
+        int N = lists.length;
+    
+        if (N == 0) {
+            return null;
+        }
+        
+        if (N == 1) {
+            return lists[0];
+        }
+
+        PriorityQueue<ListNode> pq = new PriorityQueue<>(Comparator.comparingInt(o -> o.val));
+        for (ListNode node : lists) {
+            pq.offer(node);
+        }
+
+        ListNode sentry = new ListNode(0);
+        ListNode ptr = sentry;
+        while (!pq.isEmpty()) {
+            ptr.next = pq.poll();
+            ptr = ptr.next;
+        
+            if (ptr.next != null) {
+                pq.offer(ptr.next);
+            }
+        }
+        return sentry.next;
+    }
+}
+```
