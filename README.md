@@ -313,3 +313,27 @@ class SwapNodesInPairs {
     }
 }
 ```
+
+#### [83. Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
+
+> 快慢指针
+>
+> 快指针遍历所有元素，慢指针拼接所有不重复元素
+
+```java
+class RemoveDuplicatesFromSortedList {
+    ListNode m0(ListNode head) {
+        if (head != null && head.next != null) {
+            ListNode ptr = head;
+            for (ListNode x = head.next; x != null; x = x.next) {
+                if (ptr.val != x.val) {
+                    ptr.next = x;
+                    ptr = ptr.next;
+                }
+            }
+            ptr.next = null;    
+        }
+        return head;
+    }   
+}
+```
