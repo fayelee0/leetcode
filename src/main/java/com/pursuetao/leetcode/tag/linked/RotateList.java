@@ -4,9 +4,7 @@ import com.pursuetao.leetcode.ListNode;
 
 public class RotateList {
     ListNode m0(ListNode head, int k) {
-        if (head == null || head.next == null) {
-            return head;
-        } else {
+        if (head != null && head.next != null) {
             ListNode fast = head;
             ListNode slow = head;
 
@@ -24,7 +22,7 @@ public class RotateList {
             fast.next = head;
             head = slow.next;
             slow.next = null;
-            return head;
         }
+        return head;
     }
 }

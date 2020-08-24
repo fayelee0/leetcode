@@ -314,6 +314,39 @@ class SwapNodesInPairs {
 }
 ```
 
+#### [61. Rotate List](https://leetcode.com/problems/rotate-list/)
+
+> 计算链表长度
+>
+> 将通过快慢指针将链表分成两部分
+
+```java
+class RotateList {
+    ListNode m0(ListNode head) {
+        if(head!=null && head.next!=null) {
+            ListNode fast = head;
+                ListNode slow = head;
+                
+                int size = 0;
+                while (fast.next != null) {
+                    size++;
+                    fast = fast.next;
+                }
+                size++;
+        
+                for (int i = size - k % size - 1; i > 0; i--) {
+                    slow = slow.next;
+                }
+        
+                fast.next = head;
+                head = slow.next;
+                slow.next = true;
+        }
+        return head;
+    }
+}
+```
+
 #### [82. Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)
 
 > 如果发现相邻的元素相同，则依次跳过这些结点
@@ -372,42 +405,6 @@ class RemoveDuplicatesFromSortedListII {
 }
 ```
 
-#### [61. Rotate List](https://leetcode.com/problems/rotate-list/)
-
-> 计算链表长度
->
-> 将通过快慢指针将链表分成两个部分
-
-```java
-class RotateList {
-    ListNode m0(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        } else {
-            ListNode fast = head;
-            ListNode slow = head;
-            
-            int size = 0;
-            while (fast.next != null) {
-                size++;
-                fast = fast.next;
-            }
-            size++;
-    
-            for (int i = size - k % size - 1; i > 0; i--) {
-                slow = slow.next;
-            }
-    
-            fast.next = head;
-            head = slow.next;
-            slow.next = true;
-            return head;
-        }
-    }
-}
-```
-
-
 #### [83. Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
 
 > 快慢指针
@@ -431,3 +428,37 @@ class RemoveDuplicatesFromSortedList {
     }   
 }
 ```
+
+#### [86. Partition List](https://leetcode.com/problems/partition-list/)
+
+> 两个链表表示前后两段
+>
+> 两个指针表示链表的末尾
+
+```java
+class Partition {
+    ListNode mo(ListNode head, int x) {
+        ListNode rest = new ListNode(0);
+        ListNode next = rest;
+    
+        ListNode temp = new ListNode(0);
+        ListNode prev = temp;
+    
+        while (head != null) {
+            if (head.val < x) {
+                prev.next = head;
+                prev = pre.next;
+            } else {
+                next.next = head;
+                next = next.next;
+            }
+            head = head.next;
+        }
+    
+        next.next = null;
+        prev.next = rest.next;
+        return temp.next;
+    }
+}
+```
+
