@@ -462,3 +462,35 @@ class Partition {
 }
 ```
 
+#### [92. Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)
+
+> 保存前一段链表
+>
+> 反转 [m, n] 链表（注意结尾处 n = length）
+
+```java
+class ReverseLinkedListII {
+    ListNode m0(ListNode head, int m, int n) {
+        if (head == null || head.next == null || m == n) {
+            return head;
+        }
+
+        ListNode ret = new ListNode(0, head);
+    
+        ListNode prev = ret;
+        for (int i = 1; i < m; i++) {
+            prev = prev.next;
+        }
+    
+        ListNode next = prev.next;
+        ListNode node;
+        for (int i = m; i < n; i++) {
+            node = next.next;
+            next.next = node.next;
+            node.next = prev.next;
+            prev.next = node;
+        }
+        return ret.next; 
+    }
+}
+```
