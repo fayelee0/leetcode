@@ -495,6 +495,48 @@ class ReverseLinkedListII {
 }
 ```
 
+### [203. Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)
+
+1. Iterative
+
+```java
+class RemoveLinkedListElements {
+    ListNode m0(ListNode head, int val) {
+        ListNode sentry = new ListNode(0, head);
+        ListNode prev = sentry;
+        ListNode node = prev.next;
+        while (node != null) {
+            if (node.val == val) {
+                prev.next = node.next; 
+            } else {
+                prev = node;
+            }
+            node = prev.next;
+        }
+        return sentry.next;
+    }
+}
+```
+
+2. Recursive
+
+```java
+class RemoveLinkedListElements {
+    ListNode m0(ListNode head, int val) {
+        if (head == null) {
+            return null;
+        }
+
+        if (head.val == val) {
+            return m0(head.next, val);
+        }
+    
+        head.next = m0(head.next, val);
+        return head;
+    }
+}
+```
+
 ### [876. Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
 
 > 快慢指针
