@@ -494,3 +494,27 @@ class ReverseLinkedListII {
     }
 }
 ```
+
+### [876. Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
+
+> 快慢指针
+
+```java
+class MiddleOfTheLinkedList {
+    ListNode m0(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode slow = head;
+        ListNode fast = head.next.next;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow.next;
+    }
+}
+```
