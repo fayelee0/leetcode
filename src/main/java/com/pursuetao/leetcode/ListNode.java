@@ -18,7 +18,7 @@ public class ListNode {
         this.next = next;
     }
 
-    public ListNode(int[] values) {
+    public ListNode(int... values) {
         ListNode next = null;
         for (int i = values.length - 1; i > 0; i--) {
             next =  new ListNode(values[i], next);
