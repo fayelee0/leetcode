@@ -18,8 +18,8 @@ public class TestMiddleOfTheLinkedList {
 
     @Test
     public void m0() {
-        assertThat(v.m0(new ListNode(new int[]{1, 2, 3, 4, 5})).sequence(), is(contains(3, 4, 5)));
-        assertThat(v.m0(new ListNode(new int[]{1, 2, 3, 4})).sequence(), is(contains(3, 4)));
-        assertThat(v.m0(new ListNode(new int[]{1, 2, 3, 4, 5, 6})).sequence(), is(contains(4, 5, 6)));
+        assertThat(v.m0(new ListNode(1, 2, 3, 4, 5)).sequence(), is(contains(3, 4, 5)));
+        assertThat(v.m0(new ListNode(1, 2, 3, 4)).sequence(), is(contains(3, 4)));
+        assertThat(v.m0(new ListNode(1, 2, 3, 4, 5, 6)).sequence(), is(contains(4, 5, 6)));
     }
 }

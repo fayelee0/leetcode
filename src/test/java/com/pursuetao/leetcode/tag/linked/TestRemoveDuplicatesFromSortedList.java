@@ -18,7 +18,7 @@ public class TestRemoveDuplicatesFromSortedList {
 
     @Test
     public void m0() {
-        assertThat(v.m0(new ListNode(new int[]{1, 1, 2})).sequence(), is(contains(1, 2)));
-        assertThat(v.m0(new ListNode(new int[]{1, 1, 2, 3, 3})).sequence(), is(contains(1, 2, 3)));
+        assertThat(v.m0(new ListNode(1, 1, 2)).sequence(), is(contains(1, 2)));
+        assertThat(v.m0(new ListNode(1, 1, 2, 3, 3)).sequence(), is(contains(1, 2, 3)));
     }
 }

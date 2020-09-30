@@ -18,13 +18,13 @@ public class TestReverseLinkedListII {
 
     @Test
     public void m0() {
-        assertThat(v.m0(new ListNode(new int[]{1, 2, 3, 4, 5}), 2, 4).sequence(), is(contains(1, 4, 3, 2, 5)));
-        assertThat(v.m0(new ListNode(new int[]{1, 2, 3, 4, 5}), 2, 5).sequence(), is(contains(1, 5, 4, 3, 2)));
+        assertThat(v.m0(new ListNode(1, 2, 3, 4, 5), 2, 4).sequence(), is(contains(1, 4, 3, 2, 5)));
+        assertThat(v.m0(new ListNode(1, 2, 3, 4, 5), 2, 5).sequence(), is(contains(1, 5, 4, 3, 2)));
     }
 
     @Test
     public void m1() {
-        assertThat(v.m1(new ListNode(new int[]{1, 2, 3, 4, 5}), 2, 4).sequence(), is(contains(1, 4, 3, 2, 5)));
-        assertThat(v.m1(new ListNode(new int[]{1, 2, 3, 4, 5}), 2, 5).sequence(), is(contains(1, 5, 4, 3, 2)));
+        assertThat(v.m1(new ListNode(1, 2, 3, 4, 5), 2, 4).sequence(), is(contains(1, 4, 3, 2, 5)));
+        assertThat(v.m1(new ListNode(1, 2, 3, 4, 5), 2, 5).sequence(), is(contains(1, 5, 4, 3, 2)));
     }
 }

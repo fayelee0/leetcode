@@ -18,7 +18,7 @@ public class TestRotateList {
 
     @Test
     public void m0() {
-        assertThat(v.m0(new ListNode(new int[]{1, 2, 3, 4, 5}), 2).sequence(), is(contains(4, 5, 1, 2, 3)));
-        assertThat(v.m0(new ListNode(new int[]{0, 1, 2}), 4).sequence(), is(contains(2, 0, 1)));
+        assertThat(v.m0(new ListNode(1, 2, 3, 4, 5), 2).sequence(), is(contains(4, 5, 1, 2, 3)));
+        assertThat(v.m0(new ListNode(0, 1, 2), 4).sequence(), is(contains(2, 0, 1)));
     }
 }

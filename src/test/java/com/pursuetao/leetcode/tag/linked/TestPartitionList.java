@@ -18,6 +18,6 @@ public class TestPartitionList {
 
     @Test
     public void m0() {
-        assertThat(v.m0(new ListNode(new int[]{1, 4, 3, 2, 5, 2}), 3).sequence(), is(contains(1, 2, 2, 4, 3, 5)));
+        assertThat(v.m0(new ListNode(1, 4, 3, 2, 5, 2), 3).sequence(), is(contains(1, 2, 2, 4, 3, 5)));
     }
 }

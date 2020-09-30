@@ -17,13 +17,13 @@ public class TestRemoveLinkedListElements {
 
     @Test
     public void m0() {
-        assertThat(v.m0(new ListNode(new int[]{1, 2, 6, 3, 4, 5, 6}), 6).sequence(), is(contains(1, 2, 3, 4, 5)));
-        assertThat(v.m0(new ListNode(new int[]{1, 1}), 1), is(nullValue()));
+        assertThat(v.m0(new ListNode(1, 2, 6, 3, 4, 5, 6), 6).sequence(), is(contains(1, 2, 3, 4, 5)));
+        assertThat(v.m0(new ListNode(1, 1), 1), is(nullValue()));
     }
 
     @Test
     public void m1() {
-        assertThat(v.m1(new ListNode(new int[]{1, 2, 6, 3, 4, 5, 6}), 6).sequence(), is(contains(1, 2, 3, 4, 5)));
-        assertThat(v.m1(new ListNode(new int[]{1, 1}), 1), is(nullValue()));
+        assertThat(v.m1(new ListNode(1, 2, 6, 3, 4, 5, 6), 6).sequence(), is(contains(1, 2, 3, 4, 5)));
+        assertThat(v.m1(new ListNode(1, 1), 1), is(nullValue()));
     }
 }

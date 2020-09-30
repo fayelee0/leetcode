@@ -18,16 +18,16 @@ public class TestMergeTwoSortedLists {
 
     @Test
     public void m0() {
-        assertThat(v.m0(new ListNode(new int[]{1, 2, 4}), new ListNode(new int[]{1, 3, 4})).sequence(), is(contains(1, 1, 2, 3, 4, 4)));
+        assertThat(v.m0(new ListNode(1, 2, 4), new ListNode(1, 3, 4)).sequence(), is(contains(1, 1, 2, 3, 4, 4)));
     }
 
     @Test
     public void m1() {
-        assertThat(v.m1(new ListNode(new int[]{1, 2, 4}), new ListNode(new int[]{1, 3, 4})).sequence(), is(contains(1, 1, 2, 3, 4, 4)));
+        assertThat(v.m1(new ListNode(1, 2, 4), new ListNode(1, 3, 4)).sequence(), is(contains(1, 1, 2, 3, 4, 4)));
     }
 
     @Test
     public void m2() {
-        assertThat(v.m2(new ListNode(new int[]{1, 2, 4}), new ListNode(new int[]{1, 3, 4})).sequence(), is(contains(1, 1, 2, 3, 4, 4)));
+        assertThat(v.m2(new ListNode(1, 2, 4), new ListNode(1, 3, 4)).sequence(), is(contains(1, 1, 2, 3, 4, 4)));
     }
 }
