@@ -560,3 +560,18 @@ class MiddleOfTheLinkedList {
     }
 }
 ```
+
+### [1290. Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/)
+
+```java
+class ConvertBinaryNumberInALinkedListToInteger {
+    int m0(ListNode head) {
+        int ret = 0;
+        while (head != null) {
+            ret = ret * 2 + haed.val;
+            head = head.next;
+        }
+        return ret;
+    }
+}
+```
