@@ -559,6 +559,46 @@ class RemoveLinkedListElements {
 }
 ```
 
+### [234. Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)
+
+> 通过快慢指针将链表分成两部分
+> 在遍历的过程中，将前部分的链表反转
+
+```java
+class PalindromeLinkedList {
+    boolean m0(ListNode head) {
+        if (head == null || head.next == null) {
+            return true;
+        }
+    
+        ListNode s = head;
+        ListNode f = head;
+    
+        ListNode t;
+        ListNode x = null;
+        while (f != null && f.next != null) {
+            t = s;
+            s = s.next;
+            f = f.next.next;
+
+            t.next = x; // reverse
+            x = t;
+        }
+        
+        if (f != null) {    // ignore odd center node
+            s = s.next;
+        }
+
+        for (; s != null; s = s.next, x = x.next) {
+            if (s.val != x.val) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
 ### [237. Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/)
 
 > 合并当前结点与下一个结点，将其看做一个结点
