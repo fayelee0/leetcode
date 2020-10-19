@@ -34,4 +34,9 @@ public class ListNode {
         }
         return ret;
     }
+
+    @Override
+    public String toString() {
+        return "ListNode: " + sequence().toString();
+    }
 }
