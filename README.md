@@ -495,6 +495,28 @@ class ReverseLinkedListII {
 }
 ```
 
+### [160. Intersection of Two Linked List](https://leetcode.com/problems/intersection-of-two-linked-lists/)
+
+> 通过拼接两个链表讲其对其，然后两两比较
+
+```java
+class IntersectionOfTwoLinkedList {
+    ListNode m0(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+        
+        ListNode x = headA;
+        ListNode y = headB;
+        while (x != y) {
+            x = (x == null) ? headB : x.next;
+            y = (y == null) ? headA : y.next;
+        }
+        return x;
+    }
+}
+```
+
 ### [203. Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)
 
 1. Iterative
@@ -533,6 +555,21 @@ class RemoveLinkedListElements {
     
         head.next = m0(head.next, val);
         return head;
+    }
+}
+```
+
+### [237. Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/)
+
+> 合并当前结点与下一个结点，将其看做一个结点
+> 其中数据是当前结点的下一个结点的数据
+>     指针指向当前结点的下下个结点
+
+```java
+class DeleteNodeInALinkedList {
+    void m0(ListNode node) {
+        node.val = node.next.val;
+        node.next = node.next.next;
     }
 }
 ```
